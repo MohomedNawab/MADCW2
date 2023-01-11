@@ -26,7 +26,11 @@ class HomeTab extends StatelessWidget {
               if(snapshot.connectionState == ConnectionState.done){
                 return ListView(
                   children: snapshot.data!.docs.map((document) {
-                    return Text("Name: ${document.data()['name']}");
+                    Map<String, dynamic> data =
+                    document.data()! as Map<String, dynamic>;
+                    return Text("Name:"
+                        " ${data['name']}"
+                    );
                   }).toList(),
                 );
               }
